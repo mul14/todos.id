@@ -54,7 +54,7 @@
                 <div class="float-left">
                   <a class="draggable pr-2">&equiv;</a>
                   <div class="pretty p-icon p-round p-jelly">
-                    <input type="checkbox" :name="todo.name" v-model="todo.finishedAt" :true-value="(new Date()).toISOString()">
+                    <input type="checkbox" v-model="todo.finishedAt" @change="update(todo)" :false-value="null">
                     <div class="state p-success">
                       <i class="icon fa fa-check"></i>
                       <label>{{ todo.name }}</label>

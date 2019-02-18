@@ -30,8 +30,9 @@ export default new Vuex.Store({
       state.todos.splice(index, 1)
     },
     update (state, todo) {
-      const index = state.todos.indexOf(todo)
-      state.todos[index] = JSON.parse(JSON.stringify(todo))
+      if (todo.finishedAt) {
+        todo.finishedAt = (new Date).toISOString()
+      }
     },
     darkMode (state, value) {
       state.darkMode = value
